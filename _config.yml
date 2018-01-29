@@ -4,7 +4,7 @@
 baseurl:
 url: 
 date_format: "ordinal"
-title: dennis
+title: DENNIS
 subtitle: "只有世界观，没有方法论，都是耍流氓"
 description: "dennis 闲聊"
 keywords: dcydwj, dennis
@@ -91,10 +91,10 @@ livere:
     user_token: MTAyMC8zMTA3Mi83NjIw
 # https://disqus.com
 disqus:
-    username: dennis
+    username: DENNIS
 # https://imsun.net/posts/gitment-introduction/
 gitment:
-    owner: dennis
+    owner: DENNIS
     repo: blog-comments
     oauth:
         client_id: b9b3321130883bd874ae

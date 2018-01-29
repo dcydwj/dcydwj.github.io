@@ -78,7 +78,7 @@ collections:
         output: true
         permalink: /wiki/:path/
 
-repository: dennis/dennis.github.io
+repository: dcydwj/dcydwj.github.io
 
 # ---------------- #
 #      Comments    #

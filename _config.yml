@@ -1,0 +1,112 @@
+# ---------------- #
+#   Main Configs   #
+# ---------------- #
+baseurl:
+url: 
+date_format: "ordinal"
+title: dennis
+subtitle: "只有世界观，没有方法论，都是耍流氓"
+description: "dennis 闲聊"
+keywords: dcydwj, dennis
+favicon: /favicon.ico
+timezone: Asia/nanjing
+encoding: "utf-8"
+side_bar_repo_limit: 1
+
+# ---------------- #
+#      Author      #
+# ---------------- #
+author: DENNIS
+organization: dengcongying.com
+organization_url: http://www.dengcongying.com
+github_username: DENNIS
+location: 中国・南京
+email: dcydwj@gmail.com
+
+# ---------------- #
+#    Navigation    #
+# ---------------- #
+navs:
+  -
+    href: /
+    label: 首页
+
+  -
+    href: /categories/
+    label: 分类
+
+  -
+    href: /wiki/
+    label: 维基
+
+  -
+    href: /open-source/
+    label: 开源
+
+  -
+   href: /about/
+   label: 关于
+
+# ---------------- #
+#       RSS        #
+# ---------------- #
+subscribe_rss: /feed.xml
+
+# ---------------- #
+#      Jekyll      #
+# ---------------- #
+markdown: kramdown
+kramdown:
+    input: GFM
+highlighter: rouge
+paginate: 18
+lsi: false
+quiet: false
+excerpt_separator: "\n\n"
+permalink: /:year/:month/:day/:title/
+gems:
+    - jekyll-github-metadata
+    - rouge
+#     - jekyll-html-pipeline
+    - jekyll-paginate
+    - jekyll-sitemap
+#    - jekyll-feed
+    - jemoji
+#     - jekyll-mentions
+collections:
+    wiki:
+        output: true
+        permalink: /wiki/:path/
+
+repository: dennis/dennis.github.io
+
+# ---------------- #
+#      Comments    #
+# ---------------- #
+# support provider: disqus, gitment, livere
+
+# https://livere.com/introduce
+comments_provider: livere
+livere:
+    user_token: MTAyMC8zMTA3Mi83NjIw
+# https://disqus.com
+disqus:
+    username: dennis
+# https://imsun.net/posts/gitment-introduction/
+gitment:
+    owner: dennis
+    repo: blog-comments
+    oauth:
+        client_id: b9b3321130883bd874ae
+        client_secret: b6625ead5f7e1e38e0fe34e609130a934b955462
+# 在使用其它评论组件时可点击显示 Disqus
+lazy_load_disqus : false
+
+# ---------------- #
+#    Analytics     #
+# ---------------- #
+google:
+    analytics_id: UA-106899440-1
+baidu:
+    analytics_id: 39bfa04d70f4fe8f9613606a9052b500
+

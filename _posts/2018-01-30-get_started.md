@@ -88,5 +88,5 @@ Tosh : 我感觉 完全不考虑性能问题 不考虑优化 跟搬砖就真的�
 
 PS：你觉得为什么要学习HashMap的底层原理？除了面试之外有什么实际用处？ 欢迎留言！
 
-转载：http://blog.csdn.net/bjweimengshu/article/details/78700062
+[转载：http://blog.csdn.net/bjweimengshu/article/details/78700062](http://blog.csdn.net/bjweimengshu/article/details/78700062 "为什么要学习HashMap的底层原理？")
 

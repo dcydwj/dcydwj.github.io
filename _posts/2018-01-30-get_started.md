@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 为什么要学习HashMap的底层原理？
-categories: [java基础]
+categories: [技术]
 description: 扯淡
 keywords: 底层, 原理
 ---

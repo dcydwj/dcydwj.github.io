@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Chain of Responsibility Pattern
-categories: [design-pattern]
+categories: [Design-Pattern]
 description: 扯淡
 keywords: design,架构
 ---

@@ -36,3 +36,169 @@ keywords: design,架构
 
 话不多说，直接上代码,整体结构如下图：
 ![design_chain_of_responsibility.png](/imgs/design_chain_of_responsibility.png)
+
+### Handler 代码
+
+```java
+public abstract class AbstractHandler {
+
+    private AbstractHandler nextHandler;
+
+    public final void handleRequest(AbstractRequest request) {
+        if (this.getHandlerLevel() == request.getRequestLevel()) {
+            this.handle(request);
+        } else {
+            if (this.nextHandler != null) {
+                System.out.println("当前处理者 0" + this.getHandlerLevel() + "不足以处理 0" + request.getRequestLevel() + "请求");
+                this.nextHandler.handleRequest(request);
+            } else {
+                System.out.println("都不能处理");
+            }
+        }
+
+    }
+
+    public AbstractHandler getNextHandler() {
+        return nextHandler;
+    }
+
+    public void setNextHandler(AbstractHandler nextHandler) {
+        this.nextHandler = nextHandler;
+    }
+
+    protected abstract int getHandlerLevel();
+
+    protected abstract void handle(AbstractRequest request);
+
+}
+
+
+public class Handler01 extends AbstractHandler {
+    @Override
+    protected int getHandlerLevel() {
+        return Levels.LEVEL_01;
+    }
+
+    @Override
+    protected void handle(AbstractRequest request) {
+        System.out.println("处理者01 处理" + request.getContent() + "\n");
+    }
+}
+
+public class Handler02 extends AbstractHandler {
+    @Override
+    protected int getHandlerLevel() {
+        return Levels.LEVEL_02;
+    }
+
+    @Override
+    protected void handle(AbstractRequest request) {
+        System.out.println("处理者02 处理" + request.getContent() + "\n");
+    }
+}
+
+public class Handler03 extends AbstractHandler {
+    @Override
+    protected int getHandlerLevel() {
+        return Levels.LEVEL_03;
+    }
+
+    @Override
+    protected void handle(AbstractRequest request) {
+        System.out.println("处理者03 处理" + request.getContent() + "\n");
+    }
+}
+```
+
+### request 代码
+```java
+public abstract class AbstractRequest {
+    private String content;
+
+    public AbstractRequest(String content) {
+        this.content = content;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public abstract int getRequestLevel();
+}
+
+public class Request01 extends AbstractRequest {
+
+    public Request01(String content) {
+        super(content);
+    }
+
+    @Override
+    public int getRequestLevel() {
+        return Levels.LEVEL_01;
+    }
+}
+
+public class Request02 extends AbstractRequest {
+
+    public Request02(String content) {
+        super(content);
+    }
+
+    @Override
+    public int getRequestLevel() {
+        return Levels.LEVEL_02;
+    }
+}
+
+public class Request03 extends AbstractRequest {
+
+    public Request03(String content) {
+        super(content);
+    }
+
+    @Override
+    public int getRequestLevel() {
+        return Levels.LEVEL_03;
+    }
+}
+
+```
+
+### client 代码
+
+```java
+
+public interface Levels {
+    int LEVEL_01 = 1;
+    int LEVEL_02 = 2;
+    int LEVEL_03 = 3;
+}
+
+
+public class Client {
+    public static void main(String[] args) {
+        //创建职责连所有的节点
+        AbstractHandler handler01 = new Handler01();
+        AbstractHandler handler02 = new Handler02();
+        AbstractHandler handler03 = new Handler03();
+
+        handler01.setNextHandler(handler02);
+        handler02.setNextHandler(handler03);
+
+        AbstractRequest request01 = new Request01("请求01");
+        AbstractRequest request02 = new Request02("请求02");
+        AbstractRequest request03 = new Request03("请求03");
+
+        handler01.handleRequest(request01);
+        System.out.println("-----------------");
+        handler01.handleRequest(request02);
+        System.out.println("-----------------");
+        handler01.handleRequest(request03);
+
+    }
+}
+```
